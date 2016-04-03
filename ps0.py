@@ -11,7 +11,12 @@ def odd_even(integer):
 # Returns the number of digits in it.
 def number_digits(integer):
 	""" Tells the number of digits in a number"""
-	length = len(str(integer))
+	length = 0
+	if integer == 0:
+		length = 1
+	while integer > 0:
+		length += 1
+		integer = integer // 10
 	return length
 
 	
@@ -20,10 +25,11 @@ def number_digits(integer):
 def sum_digits(integer):
 	"""Tells the sum of the digits in a number"""
 	final = 0
-	for digit in str(integer):
-		final += int(digit)
+	while integer > 0:
+		remainder = integer % 10 #The remainder is the first number
+		final += remainder 
+		integer = integer // 10
 	return final
-	
 	
 #3. Write a function that takes a non-negative integer as a parameter
 #Returns the sum of all the integers that are less than the given number. 
@@ -86,9 +92,7 @@ def perfect_number(integer):
 #Returns true if the sum of the digits of the number divides evenly into the number, false otherwise 
 def sum_divides_evenly(integer):
 	"""Tells if the sum of the digits of a number divides evenly into the number """
-	final = 0
-	for digit in str(integer):			
-		final += int(digit)
+	final = sum_digits(integer)
 	if final % integer == 0:
 		return True				
 	else:
