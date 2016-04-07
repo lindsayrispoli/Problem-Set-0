@@ -2,6 +2,8 @@
 #Returns whether the number is odd or even.
 def odd_even(integer):
 	""" Tells if an integer is odd or even """
+	if integer == 0:
+		return("is neither")
 	if integer % 2 == 0: #See if there is a remainder 
 		return True #even
 	else: 
@@ -46,6 +48,8 @@ def sum_less_number(integer):
 #Returns its factorial.  
 def factorial(integer):
 	"""the factorial of a number"""
+	if integer == 0:
+		return("1")
 	final = 1
 	while integer > 0:
 		final = final * int(integer) 
@@ -56,7 +60,7 @@ def factorial(integer):
 #Figures out whether the second number is a factor the first.
 def factor_of_first(integer1, integer2):
 	"""Tells if the second number is a factor of the first"""
-	if integer2 % integer1 == 0:
+	if integer1 % integer2 == 0:
 		return True
 	else:
 		return False
@@ -69,8 +73,7 @@ def is_prime(integer):
 	for factor in range (2, integer): #looks at the number between 2 and the integer 
 		if integer % factor == 0: 				
 			return False
-		else:
-			return True
+	return True
 		
 
 #7.Write a boolean function that takes a positive integer
@@ -83,6 +86,8 @@ def perfect_number(integer):
 		if int(integer) % int(number) == 0:
 			final += int(number) 
 		number = integer - 1
+	if integer == 0:
+		return("is not a perfect number")
 	if final == integer:
 		return True
 	else:
@@ -93,7 +98,9 @@ def perfect_number(integer):
 def sum_divides_evenly(integer):
 	"""Tells if the sum of the digits of a number divides evenly into the number """
 	final = sum_digits(integer)
-	if final % integer == 0:
+	if integer == 0:
+		return("Error")
+	if integer % final == 0:
 		return True				
 	else:
 		return False 
